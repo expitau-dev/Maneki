@@ -115,7 +115,7 @@ class Maneki {
 
         Array.from(document.getElementsByTagName('terminal')).forEach((element, i) => {
             element.outerHTML = " \
-            <div style=\"" + element.style.cssText + "\"> \
+            <div style=\"" + element.style.cssText + "\"" + " " + `id=\"${element.id || ''}\"` + " " + `class=\"${element.class || ''}\"` + "> \
                 <div style=\"all:initial; background-color: inherit; color: inherit\"> \
                     <div class=\"m_terminal\" id=\"m_terminal_"+ i + "\" onClick=\"document.getElementById('m_terminal_" + i + "_input').focus()\"> \
                         <p class=\"m_terminal_text\" id=\"m_terminal_"+ i + "_text\"></p> \
