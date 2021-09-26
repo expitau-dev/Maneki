@@ -2,7 +2,7 @@ class Maneki_Terminal {
     constructor(id) {
         this.id = "m_terminal_" + id;
         this.content = [];
-        this.context = ">>>&nbsp";
+        this.context = ">>> ";
         this.commands = [];
     }
 
@@ -120,7 +120,7 @@ class Maneki {
                     <div class=\"m_terminal\" id=\"m_terminal_"+ i + "\" onClick=\"document.getElementById('m_terminal_" + i + "_input').focus()\"> \
                         <p class=\"m_terminal_text\" id=\"m_terminal_"+ i + "_text\"></p> \
                         <div class=\"m_terminal_prompt\" id=\"m_terminal_"+ i + "_prompt\"> \
-                            <p class=\"m_terminal_context\" id=\"m_terminal_" + i + "_context\">" + this.terminals[i].context + "</p> \
+                            <p class=\"m_terminal_context\" id=\"m_terminal_" + i + "_context\">\"" + this.terminals[i].context + "\"</p> \
                             <textarea class=\"m_terminal_input\" autofocus rows=\"1\" id=\"m_terminal_"+ i + "_input\" onkeydown=\"maneki.terminals[" + i + "].onKeyDown();\"></textarea> \
                         </div> \
                     </div> \
