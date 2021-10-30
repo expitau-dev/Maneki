@@ -79,9 +79,11 @@ let Maneki = new (function () {
 
         // Execute all listening events
         this.dispatchEvent = (e, ...args) => {
-            for (const f of (_eventlisteners[e] || [])){
-                f(...args);
+            let callbacks = _eventlisteners[e] || []
+
+            for (const f of callbacks){
                 this.removeEventListener(e,f)
+                f(...args);
             }
         }
 
@@ -129,13 +131,6 @@ let Maneki = new (function () {
 
         // Append a line to the terminal
         this.write = (line = "") => {
-            // img = line.split("image/")[1]
-            // imageElement = document.createElement("img")
-            // imageElement.setAttribute("src", img)
-            // imageElement.setAttribute("width", "42%")
-            // document.getElementById("m_terminal_0_text").appendChild(imageElement);
-            // document.getElementById("m_terminal_0_text").appendChild(document.createElement("br"));
-            // document.getElementById("m_terminal_0_text").appendChild(document.createElement("br"));
             if (typeof line === 'string') {
                 for (const part of line.split("\n")) {
                     this.content.push(part);
