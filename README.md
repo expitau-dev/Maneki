@@ -20,7 +20,7 @@ Use the style property to set the colour of the terminal. In JavaScript, you can
 
 ```js
 t = Maneki.getTerminal("myterminal");
-t.addEventListener(("onCommand", (line)) => {t.write("You entered a command"));
+t.addEventListener("onCommand", (line) => {t.write("You entered a command");
 t.write(line)
 })
 ```
