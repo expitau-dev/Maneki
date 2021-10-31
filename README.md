@@ -8,30 +8,24 @@ Import via a script tag using
 <script type="text/javascript" src="https://expitau-dev.github.io/Maneki/Maneki.js"></script>
 ```
 
-Initialize a Maneki instance in JavaScript with
-
-```js
-maneki = new Maneki(1)
-```
-
-Pass in the number of terminal tags (see below) as an argument. If no arguments are present, it will attempt to auto-detect the number of terminal tags in the DOM (you may need to defer your script to ensure that all tags are loaded)
-
 ## Usage
 
-To create a terminal, simply create an element with the `<terminal>` tag
+To create a terminal, simply create an element with the `<terminal>` tag. It must have a unique id.
+
 ```html
-<terminal style="color: white; background-color: black;"></terminal>
+<terminal id="myterminal" style="color: white; background-color: black; margin: 5%;"></terminal>
 ```
 
-Use the style property to set the colour of the terminal. In JavaScript, you can attach commands to be executed to the terminal with
+Use the style property to set the colour of the terminal. In JavaScript, you can add listeners  to be executed when the user enters a command in the terminal with
 
 ```js
-t = maneki.terminals[0];
-t.attachCommand("^help.*", () => {t.write("Put your help text here!"))
-t.attachCommand("^print .*", (line) => {t.write("Printing the " + line.substr(6))})
+t = Maneki.getTerminal("myterminal");
+t.addEventListener(("onCommand", (line)) => {t.write("You entered a command"));
+t.write(line)
+})
 ```
 
-The first argument is a regular expression or string representing the command to match. The second is a callback function that will be executed when the command is entered into the terminal.
+When a command is entered in the terminal, the callback function will be executed.
 
 <br>
 
