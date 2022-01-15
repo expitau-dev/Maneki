@@ -40,3 +40,6 @@ To change the context (prefix), use `t.context`
 t.context = "$ "
 t.flush()
 ```
+
+| Javascript |
+|:-:|
